@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 400px;
+      max-width: 100%;
+    }
+
+    h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+      width: 50%; /* Adjust width */
+      margin: 0 auto; /* Center button */
+      display: block;
+    }
+
+    p {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+  <!-- <link rel="stylesheet" type="text/css" href="/styles.css"> -->
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+</head>
+
+<body>
+  <div class="form-container">
+  <h1>Register as <%= role %></h1>
+  <form action="/auth/register/<%= role %>" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <% if (role === 'educator') { %>
+      <label for="collegeName">College Name:</label>
+      <input type="text" id="collegeName" name="collegeName" required><br>
+
+      <label for="experience">Experience:</label>
+      <input type="text" id="experience" name="experience" required><br>
+    <% } else { %>
+      <label for="branch">Branch:</label>
+      <input type="text" id="branch" name="branch" required><br>
+
+      <label for="year">Year:</label>
+      <input type="text" id="year" name="year" required><br>
+
+      <label for="collegeName">College Name:</label>
+      <input type="text" id="collegeName" name="collegeName" required><br>
+    <% } %>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <button type="submit">Register</button>
+  </form>
+  <p>Already have an account? <a href="/auth/login?role=<%= role %>">Login</a></p>
+  </div>
+</body>
+</html>

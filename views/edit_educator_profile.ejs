@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Educator Profile</title>
+    <style>
+         
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .profile {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="/styles.css"> -->
+</head>
+<body>
+    <div class="profile">
+    <h1>Edit Educator Profile</h1>
+    <form action="/educator/profile/update" method="post">
+        <input type="hidden" name="id" value="<%= educator._id %>">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="<%= educator.username %>" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= educator.email %>" required><br><br>
+         <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="collegeName">College Name:</label>
+        <input type="text" id="collegeName" name="collegeName" value="<%= educator.collegeName %>" required><br><br>
+        <label for="experience">Experience:</label>
+        <input type="text" id="experience" name="experience" value="<%= educator.experience %>" required><br><br>
+        <input type="submit" value="Update Profile">
+    </form>
+    <button onclick="window.location.href='/educator/profile'">Cancel</button>
+    </div>
+</body>
+</html>

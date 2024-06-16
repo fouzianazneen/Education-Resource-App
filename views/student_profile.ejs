@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile</title>
+  <style>
+     body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  max-width: 100%;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+form {
+  margin-top: 20px;
+}
+
+button[type="submit"] {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #c82333;
+}
+
+  </style>
+  <!-- <link rel="stylesheet" type="text/css" href="/styles.css"> -->
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+</head>
+<body>
+  <div class="profile-container">
+  <h1>Welcome, <%= student.username %></h1>
+  <p>Email: <%= student.email %></p>
+  <p>Branch: <%= student.branch %></p>
+  <p>Year: <%= student.year %></p>
+  <p>College Name: <%= student.collegeName %></p>
+  <a href="/student/profile/edit" class="btn btn-primary">Edit Profile</a>
+  <button onclick="window.location.href='/student/resources'" class="btn">Browse Resources</button>
+  <!-- <button onclick="window.location.href='/auth/logout'">Logout</button> -->
+  <form action="/auth/logout" method="post">
+    <button type="submit">Logout</button>
+  </form>
+  </div>
+</body>
+</html>

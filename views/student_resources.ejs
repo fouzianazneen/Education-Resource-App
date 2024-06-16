@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Resources</title>
+  <style>
+     body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    strong {
+      color: #007bff;
+    }
+
+    span {
+      color: #666;
+      font-style: italic;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      margin-left: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <!-- <link rel="stylesheet" type="text/css" href="/styles.css"> -->
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+</head>
+<body>
+  <h1>Browse Educational Resources</h1>
+
+  
+    <!-- Search form for filtering resources -->
+    <form action="/student/resources/search" method="GET">
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject">
+      <!-- <label for="branch">Branch:</label>
+      <input type="text" id="branch" name="branch">
+      <label for="semester">Semester:</label>
+       <input type="text" id="semester" name="semester"> -->
+       <button type="submit">Search</button> 
+  </form>
+
+  <ul>
+    <% resources.forEach(resource => { %>
+      <li>
+        <strong>Subject: <%= resource.subject %></strong><br>
+        <span>Description: <%= resource.description %></span><br>
+        <span>Uploaded by:  <%= resource.uploader %></span><br> <!-- Display uploader's name -->
+        <a href="/<%= resource.fileUrl %>" download>Download</a>
+      </li>
+    <% }) %>
+  </ul>
+  <button onclick="window.location.href='/student/profile'">Back to Profile</button>
+</body>
+</html>
