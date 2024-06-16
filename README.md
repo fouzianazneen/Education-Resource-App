@@ -15,10 +15,10 @@ The Education-Resource-App is a Full-Stack web application designed to serve as 
 ** Database Management: Effective utilization of MongoDB for storing and retrieving educational resource metadata, ensuring efficient data handling.
 
 ## Technologies Used
-Backend: Node.js, Express.js
-Database: MongoDB
-Authentication: Session-based authentication for secure user login and management.
-File Upload: Multer for handling file uploads.
+* Backend: Node.js, Express.js
+* Database: MongoDB
+* Authentication: Session-based authentication for secure user login and management.
+* File Upload: Multer for handling file uploads.
 
 ## Getting Started
 1. Clone the Repository:
